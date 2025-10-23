@@ -613,17 +613,51 @@ section {
     50% { transform: translate(-10%, -10%); }
 }
 
-.project-icon-header i {
-    font-size: 3rem;
-    color: white;
+.pet-icons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     z-index: 1;
     position: relative;
-    animation: pawBounce 2s ease-in-out infinite;
 }
 
-@keyframes pawBounce {
+.pet-icon-main {
+    font-size: 3rem;
+    color: white;
+    transition: all 0.3s ease;
+    animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.pet-icon-small {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    animation: pawRotate 4s linear infinite;
+}
+
+.pet-icon-main:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.pet-icon-main:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes gentleBounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes pawRotate {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.pet-icons-container i:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .project-content {
