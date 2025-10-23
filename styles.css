@@ -1140,6 +1140,93 @@ footer {
   font-size: 0.9rem;
 }
 
+.edu-year {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+/* Institution Link Styles */
+.institution-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  padding: 0.25rem 0;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
+.institution-link:hover {
+  color: var(--accent-secondary);
+  transform: translateX(3px);
+}
+
+.institution-link i {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  transition: all var(--transition-normal);
+}
+
+.institution-link:hover i {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Tooltip Styles */
+.institution-link::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  transform: translateY(-10px);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-md);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  width: max-content;
+  max-width: 300px;
+  white-space: normal;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.institution-link::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 20px;
+  transform: translateY(6px);
+  border: 6px solid transparent;
+  border-top-color: var(--card-bg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  z-index: 1001;
+}
+
+.institution-link:hover::before,
+.institution-link:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-10px);
+}
+
 
 .experience-section {
   background-color: var(--bg-secondary);
@@ -1184,6 +1271,14 @@ footer {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
   display: block;
+}
+
+.exp-year {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
 }
 
 /* Active status badge (for current role) */
