@@ -50,21 +50,6 @@
             e.preventDefault();
         });
         
-        // Detect DevTools opening (basic detection)
-        (function() {
-            const devtools = /./;
-            devtools.toString = function() {
-                this.opened = true;
-            }
-            const checkDevTools = setInterval(function() {
-                console.log('%c', devtools);
-                if(devtools.opened) {
-                    window.location.reload();
-                    devtools.opened = false;
-                }
-            }, 1000);
-        })();
-        
         // Disable printing
         window.addEventListener('beforeprint', function(e) {
             e.preventDefault();
