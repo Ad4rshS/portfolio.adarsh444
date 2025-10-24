@@ -547,7 +547,7 @@ section {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-md);
     max-width: 1200px;
     margin: 0 auto;
@@ -653,6 +653,27 @@ section {
     25% { transform: rotate(-10deg); }
     75% { transform: rotate(10deg); }
     100% { transform: rotate(0deg); }
+}
+
+.polling-icon-main {
+    font-size: 3rem;
+    color: white;
+    transition: all 0.3s ease;
+    animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.polling-icon-small {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    animation: pawRotate 4s linear infinite;
+}
+
+.polling-icon-main:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.polling-icon-main:nth-child(3) {
+    animation-delay: 1s;
 }
 
 .pet-icons-container i:hover {
@@ -839,10 +860,9 @@ section {
     color: var(--accent-primary);
 }
 
-.contact-link:hover {
-    transform: translateX(10px);
-    background-color: rgba(77, 124, 255, 0.1);
-    border-color: var(--accent-primary);
+.pet-icons-container i:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .form-group {
@@ -1009,15 +1029,6 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-    .about-content, .contact-content {
-        padding: 0 var(--spacing-md);
-    }
-    
-    .projects-grid {
-        padding: 0 var(--spacing-md);
-    }
-}
 
 @media (max-width: 992px) {
     html {
@@ -1035,6 +1046,10 @@ footer {
     
     .contact-info {
         margin-bottom: var(--spacing-lg);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1085,7 +1100,7 @@ footer {
     }
     
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .footer-content {
@@ -1108,8 +1123,9 @@ footer {
         font-size: 1.25rem;
     }
     
-    .skill-icons {
-        gap: var(--spacing-sm);
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-sm);
     }
     
     .skill-icon {
