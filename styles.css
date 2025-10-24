@@ -686,6 +686,27 @@ section {
     animation-delay: 1s;
 }
 
+.project-icon-main {
+    font-size: 3rem;
+    color: white;
+    transition: all 0.3s ease;
+    animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.project-icon-small {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    animation: pawRotate 4s linear infinite;
+}
+
+.project-icon-main:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.project-icon-main:nth-child(3) {
+    animation-delay: 1s;
+}
+
 .pet-icons-container i:hover {
     transform: scale(1.2);
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
