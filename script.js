@@ -175,4 +175,56 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // Typing Animation
+  const typingText = document.getElementById('typing-text');
+  if (typingText) {
+    const taglines = [
+      'Graduate Developer',
+      'Data Analyst', 
+      'Technical Executive'
+    ];
+    
+    let taglineIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+    let deletingSpeed = 50;
+    let pauseDuration = 2000;
+
+    function typeTagline() {
+      const currentTagline = taglines[taglineIndex];
+      
+      if (isDeleting) {
+        // Deleting characters
+        typingText.textContent = currentTagline.substring(0, charIndex - 1);
+        charIndex--;
+        
+        if (charIndex === 0) {
+          isDeleting = false;
+          taglineIndex = (taglineIndex + 1) % taglines.length;
+          // Small pause before typing next tagline
+          setTimeout(typeTagline, 500);
+          return;
+        }
+      } else {
+        // Typing characters
+        typingText.textContent = currentTagline.substring(0, charIndex + 1);
+        charIndex++;
+        
+        if (charIndex === currentTagline.length) {
+          isDeleting = true;
+          // Pause before deleting
+          setTimeout(typeTagline, pauseDuration);
+          return;
+        }
+      }
+      
+      const speed = isDeleting ? deletingSpeed : typingSpeed;
+      setTimeout(typeTagline, speed);
+    }
+
+    // Start typing animation
+    typeTagline();
+  }
 });

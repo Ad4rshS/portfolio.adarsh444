@@ -374,6 +374,25 @@ section {
     color: var(--text-secondary);
 }
 
+/* Typing Animation Styles */
+.typing-text {
+    display: inline-block;
+    border-right: none;
+}
+
+.typing-cursor {
+    display: inline-block;
+    color: var(--accent-primary);
+    font-weight: bold;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
 .highlight {
     color: var(--accent-primary);
     position: relative;
