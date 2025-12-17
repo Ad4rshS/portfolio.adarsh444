@@ -60,6 +60,7 @@
   transform: translateY(20px) scale(0.9);
   pointer-events: none;
   transition: opacity var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+  isolation: isolate;
 }
 
 #scrollTopBtn i {
@@ -578,6 +579,7 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     margin-bottom: var(--spacing-lg);
+    overflow-x: hidden;
 }
 
 .category-card {
@@ -673,6 +675,7 @@ section {
 .projects-detail-container {
     display: none;
     animation: fadeInUp 0.5s ease;
+    overflow-x: hidden;
 }
 
 .projects-detail-container.active {
