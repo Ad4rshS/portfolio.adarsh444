@@ -55,7 +55,7 @@
   justify-content: center;
   box-shadow: 0 10px 25px var(--shadow-color);
   cursor: pointer;
-  z-index: 1100;
+  z-index: 9999;
   opacity: 0;
   transform: translateY(20px) scale(0.9);
   pointer-events: none;
@@ -78,10 +78,11 @@
 
 @media (max-width: 576px) {
   #scrollTopBtn {
-    right: 16px;
-    bottom: 16px;
+    right: 12px;
+    bottom: 20px;
     width: 44px;
     height: 44px;
+    z-index: 9999;
   }
 }
 
