@@ -227,4 +227,49 @@ window.addEventListener('DOMContentLoaded', () => {
     // Start typing animation
     typeTagline();
   }
+
+  // Project Categories Functionality
+  const categoryCards = document.querySelectorAll('.category-card');
+  const projectsContainer = document.getElementById('projectsContainer');
+  const backToCategoriesBtn = document.getElementById('backToCategories');
+  const projectsCategories = document.querySelectorAll('.projects-category-detail');
+
+  // Handle category card clicks
+  categoryCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const category = card.getAttribute('data-category');
+      
+      // Hide all category sections first
+      projectsCategories.forEach(cat => cat.style.display = 'none');
+      
+      // Show selected category
+      const selectedCategory = document.getElementById(`${category}-projects`);
+      if (selectedCategory) {
+        selectedCategory.style.display = 'block';
+      }
+      
+      // Show projects container and hide categories
+      projectsContainer.classList.add('active');
+      document.querySelector('.project-categories').style.display = 'none';
+      
+      // Smooth scroll to projects section
+      document.getElementById('projects').scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    });
+  });
+
+  // Handle back to categories button
+  backToCategoriesBtn?.addEventListener('click', () => {
+    // Hide projects container and show categories
+    projectsContainer.classList.remove('active');
+    document.querySelector('.project-categories').style.display = 'grid';
+    
+    // Smooth scroll to projects section
+    document.getElementById('projects').scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'start' 
+    });
+  });
 });
